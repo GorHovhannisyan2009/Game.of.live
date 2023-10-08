@@ -1,24 +1,4 @@
 class Zombie {
-    constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.energy = 8;
-        this.index = index;
-        this.directions = [];
-    }
-
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
 
     chooseCell(character) {
         var found = [];
@@ -56,7 +36,11 @@ class Zombie {
             this.x = newX
             this.y = newY
             for (var i in grassEaterArr) {
-                if (newX == grassEaterArr[i].x && newX == predatorArr[i].x && newY == grassEaterArr[i].y && newY == predatorArr[i].y) {
+                if (newX == grassEaterArr[i].x &&  newY == grassEaterArr[i].y) {
+                    grassEaterArr.splice(i, 1);
+                    break;
+                }
+                if (newX == predatorArr[i].x &&  newY == predatorArr[i].y) {
                     grassEaterArr.splice(i, 1);
                     break;
                 }

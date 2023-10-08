@@ -1,10 +1,10 @@
 var matrix = [];
-let num1 = +prompt("inchqan e zer taxtaki erkarutyun@?")
-let num2 = +prompt("inchqan e zer taxtaki laynutyun@?")
-let grass = +prompt("inchqan xot eq uzum taxtakin?")
-let grasseater = +prompt("inchqan xotaker eq uzum taxtakin?")
-let gishatich = +prompt("inchqan gishatich eq uzum taxtakin?")
-let zombie = +prompt("inchqan zombie eq uzum taxtakin?")
+let num1 = 100
+let num2 = 100
+let grass = 1000
+let grasseater = 1000
+let gishatich = 100
+let zombie = 10
 let grassArr = []
 let grassEaterArr = []
 let predatorArr = []
@@ -15,16 +15,16 @@ var side = 50;
 
 
 createMatrix(num1, num2)
-if (num1 > 20) {
+if (num1 > 100) {
     alert("chi kareli 20-ic barcr tiv!")
 }
-else if (num1 < 5) {
+else if (num1 < 0) {
     alert("chi kareli 5-ic cacr tiv!")
 }
-else if (num2 < 5) {
+else if (num2 < 0) {
     alert("chi kareli 5-ic cacr tiv!")
 }
-else if (num2 > 20) {
+else if (num2 > 100) {
     alert("chi kareli 20-ic barcr tiv!")
 }
 
