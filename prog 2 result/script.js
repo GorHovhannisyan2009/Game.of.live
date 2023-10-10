@@ -1,8 +1,8 @@
 var matrix = [];
-let num1 = 100
-let num2 = 100
-let grass = 1000
-let grasseater = 1000
+let num1 = 90
+let num2 = 150
+let grass = 100
+let grasseater = 100
 let gishatich = 100
 let zombie = 10
 let grassArr = []
@@ -12,20 +12,22 @@ let ZombieArr = []
 let sparkArr = []
 var side = 50;
 
-
-
+Grass = require('./class.js')
+GrassEater = require('./grasseater.js')
+predator= require('./predator.js')
+Zombie= require('./Zombie.js')
 createMatrix(num1, num2)
-if (num1 > 100) {
-    alert("chi kareli 20-ic barcr tiv!")
+if (num1 > 1000) {
+    alert("chi kareli 1000-ic barcr tiv!")
 }
 else if (num1 < 0) {
-    alert("chi kareli 5-ic cacr tiv!")
+    alert("chi kareli 0-ic cacr tiv!")
 }
 else if (num2 < 0) {
-    alert("chi kareli 5-ic cacr tiv!")
+    alert("chi kareli 0-ic cacr tiv!")
 }
-else if (num2 > 100) {
-    alert("chi kareli 20-ic barcr tiv!")
+else if (num2 > 1000) {
+    alert("chi kareli 1000-ic barcr tiv!")
 }
 
 function createMatrix(num1, num2) {
@@ -76,9 +78,9 @@ function setup() {
                 var Zo = new Zombie(x, y, 4);
                 ZombieArr.push(Zo)
             }
-            else if (matrix[y][x] == 5) {
-                var sp = new spark(x, y, 5);
-                sparkArr.push(sp)}
+            // else if (matrix[y][x] == 5) {
+            //     var sp = new spark(x, y, 5);
+            //     sparkArr.push(sp)}
             else if (matrix[y][x] == 8) {
 
             }

@@ -1,4 +1,6 @@
-class GrassEater extends LivingCreature{
+let LivingCreature = require('./livingcreator.js')
+
+module.exports= class GrassEater extends LivingCreature{
     
     mul() {
         var newCell = random(this.chooseCell(1));

@@ -1,4 +1,6 @@
-class predator extends LivingCreature{
+let LivingCreature = require('./livingcreator.js')
+
+module.exports= class predator extends LivingCreature{
     mul() {
         var newCell = random(this.chooseCell(1));
         if (newCell) {
