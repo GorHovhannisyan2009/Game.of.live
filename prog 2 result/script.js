@@ -16,28 +16,7 @@ Grass = require('./class.js')
 GrassEater = require('./grasseater.js')
 predator= require('./predator.js')
 Zombie= require('./Zombie.js')
-createMatrix(num1, num2)
-if (num1 > 1000) {
-    alert("chi kareli 1000-ic barcr tiv!")
-}
-else if (num1 < 0) {
-    alert("chi kareli 0-ic cacr tiv!")
-}
-else if (num2 < 0) {
-    alert("chi kareli 0-ic cacr tiv!")
-}
-else if (num2 > 1000) {
-    alert("chi kareli 1000-ic barcr tiv!")
-}
 
-function createMatrix(num1, num2) {
-    for (let i = 0; i < num1; i++) {
-        matrix.push([])
-        for (let j = 0; j < num2; j++) {
-            matrix[i].push(0)
-        }
-    }
-}
 
 function character(index, count) {
     for (let a = 0; a < count; a++) {
