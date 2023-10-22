@@ -1,5 +1,5 @@
 let LivingCreature = require('./livingcreator.js')
-
+let random = require("./random");
 module.exports= class Zombie extends LivingCreature{
     mul() {
         var newCell = random(this.chooseCell(2) && (this.chooseCell(3)));
@@ -66,4 +66,3 @@ module.exports= class Zombie extends LivingCreature{
         }
     }
 }
-

@@ -1,24 +1,34 @@
-var matrix = [];
-let num1 = 90
-let num2 = 150
-let grass = 100
-let grasseater = 100
-let gishatich = 100
-let zombie = 10
-let grassArr = []
-let grassEaterArr = []
-let predatorArr = []
-let ZombieArr = []
-let sparkArr = []
-var side = 50;
+// var matrix = []; // server
+// let num1 = 90
+// let num2 = 150
+// let grass = 100
+// let grasseater = 100
+// let gishatich = 100
+// let zombie = 10
+// let grassArr = []
+// let grassEaterArr = []
+// let predatorArr = []
+// let ZombieArr = []
+// let sparkArr = []
+var side = 50; // server
 
-Grass = require('./class.js')
+Grass = require('../server/class.js/index.js') // Class
 GrassEater = require('./grasseater.js')
-predator= require('./predator.js')
-Zombie= require('./Zombie.js')
+predator= require('../server/predator.js/index.js')
+Zombie= require('./Zombie.js') //  server
 
+createMatrix(num1, num2) // server
 
-function character(index, count) {
+function createMatrix(num1, num2) {
+    for (let i = 0; i < num1; i++) {
+        matrix.push([])
+        for (let j = 0; j < num2; j++) {
+            matrix[i].push(0)
+        }
+    }
+} // server
+
+function character(index, count) {// (1,10)
     for (let a = 0; a < count; a++) {
         
         var x = Math.floor(random(0, num1))
@@ -27,17 +37,20 @@ function character(index, count) {
             matrix[x][y] = index
         }
     }
-}
+} // server
 
 
 function setup() {
     frameRate(5);
+
     character(1,grass)
     character(2,grasseater)
     character(3,gishatich)
-    character(4,zombie)
-    createCanvas(matrix[0].length * side, matrix.length * side);
-    background('#acacac');
+    character(4,zombie) // server
+
+    createCanvas(matrix[0].length * side, matrix.length * side); // client
+    background('#acacac'); // client
+
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
             if (matrix[y][x] == 1) {
@@ -57,12 +70,7 @@ function setup() {
                 var Zo = new Zombie(x, y, 4);
                 ZombieArr.push(Zo)
             }
-            // else if (matrix[y][x] == 5) {
-            //     var sp = new spark(x, y, 5);
-            //     sparkArr.push(sp)}
-            else if (matrix[y][x] == 8) {
-
-            }
+         
         }
     }
 }
@@ -71,7 +79,7 @@ function setup() {
 
 function draw() {
 
-    for (var y = 0; y < matrix.length; y++) {
+    for (var y = 0; y < matrix.length; y++) { // cl
         for (var x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] == 1) {
@@ -93,7 +101,8 @@ function draw() {
             rect(x * side, y * side, side, side);
         }
     }
-    for (var i in grassArr) {
+
+    for (var i in grassArr) { // server
         grassArr[i].mul();
     }
 
@@ -106,4 +115,5 @@ function draw() {
     for (var i in ZombieArr) {
         ZombieArr[i].eat();
     }
+
 }

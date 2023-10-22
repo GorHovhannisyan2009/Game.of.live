@@ -1,15 +1,23 @@
-var express = require("express");
-var app = express();
+var matrix = [];
+let num1 = 90
+let num2 = 150
+let grass = 100
+let grasseater = 100
+let gishatich = 100
+let zombie = 10
+let grassArr = []
+let grassEaterArr = []
+let predatorArr = []
+let ZombieArr = []
+var side = 50;
 
-app.use(express.static("../client"));
-
-var server = require('http').createServer(app); // add
-var io = require('socket.io')(server); // add
-
-app.get("/", function (req, res) {
-res.redirect("index.html");
-});
-
-server.listen(3000, function () { // add
-console.log("Example is running on port 3000");
-});
+function character(index, count) {
+    for (let a = 0; a < count; a++) {
+        
+        var x = Math.floor(random(0, num1))
+        var y = Math.floor(random(0, num2))
+        if (matrix[x][y] == 0) {
+            matrix[x][y] = index
+        }
+    }
+}
