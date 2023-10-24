@@ -120,6 +120,6 @@ createObj()
 setInterval(start, 1000)
 
 
-// io.on('connection', function (socket) {
-//     socket.emit("myMatrix", matrix);
-// });
+io.on('connection', function (socket) {
+    socket.emit("myMatrix", matrix);
+});

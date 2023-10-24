@@ -1,12 +1,11 @@
 let LivingCreature = require('./livingcreator.js')
 let random = require("./random");
 module.exports= class GrassEater extends LivingCreature{
-    
     mul() {
-        var newCell = random(this.chooseCell(1));
+        var newCell = random(this.chooseCell(2));
         if (newCell) {
-            var eater = new GrassEater(newCell[0], newCell[1], this.index);
-            grassEaterArr.push(eater);
+            var eater = new Grass(newCell[0], newCell[1], this.index);
+            grassArr.push(eater);
             matrix[newCell[1]][newCell[0]] = 2;
         }
     }

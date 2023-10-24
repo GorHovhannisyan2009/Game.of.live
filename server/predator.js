@@ -2,7 +2,7 @@ let LivingCreature = require('./livingcreator.js') //  Class Livi
 let random = require("./random");
 module.exports = class predator extends LivingCreature{
     mul() {
-        var newCell = random(this.chooseCell(1));
+        var newCell = random(this.chooseCell(3));
         if (newCell) {
             var eater = new GrassEater(newCell[0], newCell[1], this.index);
             grassEaterArr.push(eater);
