@@ -12,6 +12,9 @@ app.get("/", function (req, res) {
 server.listen(3000, function () { // new
     console.log("Example is running on port 3000");
 });
+io.on('connection', function (socket) {
+    socket.emit("myMatrix", myDraw);
+});
 
 
 
@@ -39,8 +42,8 @@ sparkArr = []
 
 Grass = require('./class.js') // Class
 GrassEater = require('./grasseater.js')
-predator= require('./predator.js')
-Zombie= require('./Zombie.js') //  server
+predator = require('./predator.js')
+Zombie = require('./Zombie.js') //  server
 
 
 function createMatrix(num1, num2) {
@@ -55,16 +58,16 @@ function createMatrix(num1, num2) {
 
 function character(index, count) {// (1,10)
     for (let a = 0; a < count; a++) {
-        
+
         var x = Math.floor(random(num1))
         var y = Math.floor(random(num2))
         if (matrix[x][y] == 0) {
             matrix[x][y] = index
         }
     }
-} 
+}
 
-function createObj(){
+function createObj() {
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
             if (matrix[y][x] == 1) {
@@ -84,13 +87,13 @@ function createObj(){
                 var Zo = new Zombie(x, y, 4);
                 ZombieArr.push(Zo)
             }
-         
+
         }
-}
+    }
 
 }
 
-function start(){
+function start() {
     for (var i in grassArr) { // server
         grassArr[i].mul();
     }
@@ -110,16 +113,40 @@ function start(){
 }
 
 
-createMatrix(num1, num2) 
-character(1,grass)
-character(2,grasseater)
-character(3,gishatich)
-character(4,zombie) // server
+createMatrix(num1, num2)
+character(1, grass)
+character(2, grasseater)
+character(3, gishatich)
+character(4, zombie) // server
 
 createObj()
 setInterval(start, 1000)
 
 
-io.on('connection', function (socket) {
-    socket.emit("myMatrix", matrix);
-});
+
+
+
+var clickCount = 0;
+function clickHandler(evt) {
+    clickCount++;
+    console.log(evt);
+    if(clickCount = 0){
+        console.log("ձմեռ")
+    }
+    else if(clickCount = 1){
+        console.log("գարուն")
+    }
+    else if(clickCount = 2){
+        console.log("ամառ")
+    }
+    else if(clickCount = 3){
+        console.log("աշուն")
+    }
+    else if(clickCount = 4){
+        clickCount = 0
+    }
+    var str = "Thanks for clicking " + clickCount;
+    this.innerText = str;
+}
+
+

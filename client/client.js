@@ -1,11 +1,9 @@
 var socket = io();
 var side = 400
 
-socket.on("myMatrix", handleMatrix)
 
-function setup() { 
-    createCanvas(side, side); // client
-    background('#acacac'); // client
+function myDraw(){
+    
 }
 
 function handleMatrix(matrix){
@@ -36,4 +34,10 @@ function handleMatrix(matrix){
 
 
 let but  = document.getElementById("b")
-but.addEventListener("click",handleMatrix)
+but.addEventListener("click",clickHandler)
+
+io.on('connection', function (socket) {
+    socket.emit("myMatrix", myDraw);
+});
+
+
